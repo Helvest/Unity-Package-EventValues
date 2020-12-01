@@ -1,8 +1,8 @@
 {
   "name": "com.helvest.eventvalues",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Event Values",
-  "description": "Generic class with a value who will trigger a event when changed",
+  "description": "Generic class with a value who will trigger a event when changed\n\nhttps://github.com/Helvest/Unity-Package-EventValues.git",
   "keywords": [
     "Class",
     "Event",

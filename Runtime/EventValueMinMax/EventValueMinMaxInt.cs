@@ -6,17 +6,21 @@ namespace EventValues
 	[Serializable]
 	public class EventValueMinMaxInt : EventValueInt
 	{
-		[SerializeField]
-		protected int _min = default;
-		[SerializeField]
-		protected int _max = default;
+		public EventValueMinMaxInt()
+		{
+			Value = _value;
+		}
 
-		public EventValueMinMaxInt(int startValue, int min, int max)
+		public EventValueMinMaxInt(int value, int min, int max)
+		{
+			Set(value, min, max);
+		}
+
+		public void Set(int value, int min, int max)
 		{
 			_min = min;
 			_max = max;
-
-			Value = startValue;
+			Value = value;
 		}
 
 		public override int Value
@@ -28,18 +32,62 @@ namespace EventValues
 
 			set
 			{
-				if (value < _min)
+				if (value < Min)
 				{
-					value = _min;
+					value = Min;
 				}
-				else if (value > _max)
+				else if (value > Max)
 				{
-					value = _max;
+					value = Max;
 				}
 
 				if (_value != value)
 				{
 					_value = value;
+
+					InvokeEvent();
+				}
+			}
+		}
+
+		[SerializeField]
+		private int _min = default;
+		public int Min
+		{
+			get
+			{
+				return _min;
+			}
+
+			set
+			{
+				_min = value;
+
+				if (_value < _min)
+				{
+					_value = _min;
+
+					InvokeEvent();
+				}
+			}
+		}
+
+		[SerializeField]
+		private int _max = default;
+		public int Max
+		{
+			get
+			{
+				return _max;
+			}
+
+			set
+			{
+				_max = value;
+
+				if (_value > _max)
+				{
+					_value = _max;
 
 					InvokeEvent();
 				}

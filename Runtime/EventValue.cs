@@ -20,9 +20,9 @@ namespace EventValues
 
 		public EventValue() { }
 
-		public EventValue(T startValue)
+		public EventValue(T value)
 		{
-			Value = startValue;
+			Value = value;
 		}
 
 		public virtual T Value

@@ -6,12 +6,12 @@ namespace EventValues
 	public class EventValue<T>
 	{
 		[SerializeField]
-		protected T _value = default;
+		protected T _value;
 
 		/// <summary>
 		/// Call when value change
 		/// </summary>
-		public event Action<T> Event = default;
+		public event Action<T> Event;
 
 		protected void InvokeEvent()
 		{

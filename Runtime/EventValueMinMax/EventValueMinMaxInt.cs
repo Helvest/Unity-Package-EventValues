@@ -51,7 +51,7 @@ namespace EventValues
 		}
 
 		[SerializeField]
-		private int _min = default;
+		private int _min;
 		public int Min
 		{
 			get
@@ -73,7 +73,7 @@ namespace EventValues
 		}
 
 		[SerializeField]
-		private int _max = default;
+		private int _max;
 		public int Max
 		{
 			get
